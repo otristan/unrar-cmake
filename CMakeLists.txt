@@ -8,7 +8,7 @@ option(LIB_ONLY "If set to ON, then only the library will be built.")
 option(BUILD_STATIC "If set to ON, a static library will be built.")
 option(INSTALL_HEADERS_TO_ROOT "If set to ON, dll.hpp and version.hpp will be copied directly to the root of your include directory.")
 
-if (${CMAKE_CXX_COMPILER_ID} STREQUAL "MSVC")
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_definitions(-D_SCL_SECURE_NO_WARNINGS
                     -D_CRT_SECURE_NO_WARNINGS
                     -DWIN32_LEAN_AND_MEAN)
@@ -22,7 +22,7 @@ else ()
                     -DRAR_SMP)
     
     
-    if (${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     # Ignore some noncritical warnings
         SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-dangling-else -Wno-logical-op-parentheses -Wno-switch")
     endif ()
